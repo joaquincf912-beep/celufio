@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --black: #000000;
+  --accent: #0071E3;
+  --accent-hover: #0077ED;
+  --green-wa: #25D366;
+  --green-wa-dark: #128C7E;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--white);
+  color: var(--gray-900);
+  line-height: 1.6;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+#desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.mobile-header-actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+#mobile-menu {
+  display: none;
+  padding: 16px 20px 24px;
+  border-top: 1px solid var(--gray-200);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.mobile-nav-item {
+  display: block;
+  padding: 13px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray-900);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gray-100);
+  transition: color 0.2s;
+}
+.mobile-nav-item:hover {
+  color: var(--black);
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+.nav-link:hover { color: var(--black); }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  letter-spacing: -0.01em;
+  min-height: 44px;
+}
+.btn-primary:hover {
+  background: var(--gray-800);
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 980px;
+  border: 1.5px solid var(--gray-300);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  letter-spacing: -0.01em;
+  min-height: 44px;
+}
+.btn-secondary:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-400);
+}
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--green-wa);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  min-height: 48px;
+}
+.btn-wa:hover {
+  background: var(--green-wa-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+/* Section structure */
+.section { padding: 100px 0; }
+.section-sm { padding: 60px 0; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Layout Grids Desktop */
+.grid-catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-trust {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.grid-calc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.grid-benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.grid-testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+/* Cards */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.product-card:hover {
+  border-color: var(--gray-300);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+.product-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Feature items */
+.feature-item {
+  text-align: center;
+  padding: 40px 24px;
+}
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: background 0.3s;
+}
+.feature-item:hover .feature-icon {
+  background: var(--gray-200);
+}
+
+/* Testimonial */
+.testimonial-card {
+  background: var(--gray-50);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--gray-100);
+}
+
+/* Calc section */
+.calc-section {
+  background: var(--gray-900);
+  color: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Form Inputs - prevent iOS zoom */
+select, input, button {
+  font-family: inherit;
+}
+
+/* Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Toast notification */
+.toast-notification {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 200;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  max-width: 340px;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* WhatsApp Float */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--green-wa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.wa-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+}
+
+/* Quincena buttons */
+.q-option {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.q-option:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+}
+.q-option.active {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--gray-900);
+}
+
+/* ===================================================
+   RESPONSIVE MOBILE OPTIMIZATIONS (<768px & <480px)
+   =================================================== */
+@media (max-width: 850px) {
+  .site-header { height: 56px; }
+  .header-inner { height: 56px; padding: 0 16px; }
+  #desktop-nav { display: none !important; }
+  .mobile-header-actions { display: flex !important; }
+
+  .section { padding: 56px 0; }
+  .container { padding: 0 20px; }
+
+  /* Hero Section */
+  .hero-h1 { font-size: 34px !important; line-height: 1.15 !important; }
+  .hero-sub { font-size: 15px !important; margin-bottom: 28px !important; }
+  .hero-buttons { flex-direction: column; width: 100%; gap: 10px !important; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .hero-img-box { margin-top: 36px !important; border-radius: 16px !important; }
+
+  /* Section Headings */
+  .section-h2 { font-size: 28px !important; }
+  .section-header { margin-bottom: 40px !important; }
+
+  /* Grids Mobile */
+  .grid-catalog { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .grid-trust { grid-template-columns: repeat(2, 1fr) !important; gap: 20px 12px !important; }
+  .grid-calc { grid-template-columns: 1fr !important; }
+  .grid-benefits { grid-template-columns: 1fr !important; }
+  .grid-testimonials { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .grid-footer { grid-template-columns: 1fr !important; gap: 32px !important; margin-bottom: 32px !important; }
+
+  /* Product Card Mobile */
+  .product-card img { height: 230px !important; }
+  .product-card-padding { padding: 20px !important; }
+
+  /* Calculator Mobile */
+  .calc-left { padding: 32px 20px !important; }
+  .calc-right {
+    padding: 36px 20px !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  .calc-result-num { font-size: 40px !important; margin: 12px 0 !important; }
+
+  /* Select dropdown font size 16px for iOS */
+  #calc-device { font-size: 15px !important; padding: 14px 12px !important; }
+
+  /* Benefits Mobile borders */
+  .feature-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+    padding: 28px 16px !important;
+  }
+  .feature-item:last-child { border-bottom: none !important; }
+
+  /* Testimonials Mobile */
+  .testimonial-card { padding: 24px !important; }
+
+  /* Footer Bottom Mobile */
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  /* Toast Notification Mobile */
+  .toast-notification {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 84px !important;
+    max-width: calc(100% - 32px) !important;
+  }
+
+  /* WhatsApp Float Mobile */
+  .wa-float {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 30px !important; }
+  .calc-result-num { font-size: 34px !important; }
+}
